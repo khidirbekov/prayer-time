@@ -1,0 +1,31 @@
+.prayer-cards__item {
+  position: relative;
+  background: #d6863b;
+  border-radius: 20px;
+  padding: 20px 40px;
+  margin: 5px;
+  height: 350px;
+  width: 200px;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100%;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+.prayer-cards__item__content {
+  padding: 20px 0;
+  font-family: sans-serif;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: white;
+  width: 100%;
+  text-align: center;
+}
+
+.prayer_cards__item-name {
+  font-size: 20px;
+  text-transform: uppercase;
+}
