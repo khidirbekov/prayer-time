@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import Cards from './index.js'
+
+import dayjs from 'dayjs'
+
+import { setDarkTheme } from './theme'
 
 import fajrImg from '../../assets/images/fajr.jpg'
 import dhuhrImg from '../../assets/images/dhuhr.jpg'
@@ -8,9 +10,15 @@ import asrImg from '../../assets/images/asr.jpg'
 import maghribImg from '../../assets/images/maghrib.jpg'
 import ishaImg from '../../assets/images/isha.jpg'
 
-const Data = () => {
-  const [prayers, setPrayers] = useState({})
-  const getPrayersTime = async () => {
+export const setPrayersOfDay = (prayers) => {
+  return {
+    type: 'SET_PRAYERS_OF_DAY',
+    prayers
+  }
+}
+
+export const getPrayersOfDay = (id) => {
+  return async (dispatch) => {
     const { data } = await axios.get('https://aladhan.p.rapidapi.com/timingsByCity', {
       headers: {
         'x-rapidapi-host': 'aladhan.p.rapidapi.com',
@@ -21,44 +29,38 @@ const Data = () => {
         country: 'russia'
       }
     })
+
     const prayers = [
       {
-        name: 'Fajr',
+        name: 'Фаджр',
         time: data.data.timings.Fajr,
         image: fajrImg
       },
       {
-        name: 'Dhuhr',
+        name: 'Зухр',
         time: data.data.timings.Dhuhr,
         image: dhuhrImg
       },
       {
-        name: '\'Asr',
+        name: 'Аср',
         time: data.data.timings.Asr,
         image: asrImg
       },
       {
-        name: 'Maghrib',
+        name: 'Магриб',
         time: data.data.timings.Maghrib,
         image: maghribImg
       },
       {
-        name: 'Isha',
+        name: 'Иша',
         time: data.data.timings.Isha,
         image: ishaImg
       }
     ]
 
-    setPrayers(prayers)
+    // if it's time of isha then dark theme on
+    dispatch(setDarkTheme(dayjs().format('HH:mm') > prayers[4].time || dayjs().format('HH:mm') < prayers[0].time))
+
+    dispatch(setPrayersOfDay(prayers))
   }
-
-  useEffect(() => {
-    getPrayersTime()
-  }, [])
-
-  return (
-    <Cards prayers={prayers} />
-  )
 }
-
-export default Data

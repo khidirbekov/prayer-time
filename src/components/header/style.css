@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 25px 40px;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, .2);
+}
+
+.header--logo{
+  font-weight: 900;
+  font-size: 30px;
+}
+
+.header__info button {
+  margin: 10px 10px;
+}

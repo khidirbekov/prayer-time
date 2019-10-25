@@ -1,31 +1,42 @@
 .prayer-cards__item {
+  font-family: 'Roboto';
   position: relative;
-  background: #d6863b;
-  border-radius: 20px;
-  padding: 20px 40px;
-  margin: 5px;
-  height: 350px;
-  width: 200px;
+  border-radius: 25px;
+  padding: 140px 90px;
+  margin: 15px;
+  height: 240px;
+  /* width: 150px !important; */
   object-fit: cover;
   background-repeat: no-repeat;
-  background-position: center top;
-  background-size: 100%;
+  background-position: 100% center;
+  background-size: 110%;
   overflow: hidden;
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
+  box-shadow: 0 1px 10px rgba(0, 0, 0, .2);
 }
 
-.prayer-cards__item__content {
-  padding: 20px 0;
-  font-family: sans-serif;
+.prayer-cards__item-content {
+  /* width: 70px; */
+  padding: 10px 25px; 
+  border-radius: 25px;
   position: absolute;
-  left: 0;
-  bottom: 0;
-  background: white;
-  width: 100%;
+  font-weight: 900;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(rgba(255, 255, 255, .6),rgba(254, 254, 254, .6));
   text-align: center;
+  color: #444;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, .2); */
 }
 
 .prayer_cards__item-name {
-  font-size: 20px;
-  text-transform: uppercase;
+  background: none;
+  font-size: 30px;
+  position: absolute;
+  font-weight: 700;
+  top: 58%;
+  left: 50%;
+  color: white;
+  transform: translate(-50%, -50%);
 }
