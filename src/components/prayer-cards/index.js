@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import Cards from './view.js'
 
 import { connect } from 'react-redux'
-import { getPrayersOfDay } from '../../store/actions/prayers'
+import { getPrayersOfDayByCity } from '../../store/actions/prayers'
 
 const mapStateToProps = ({ prayersOfDay }) => {
   return {
@@ -12,7 +12,7 @@ const mapStateToProps = ({ prayersOfDay }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchPrayersOfDay: () => dispatch(getPrayersOfDay())
+    fetchPrayersOfDay: () => dispatch(getPrayersOfDayByCity())
   }
 }
 
@@ -22,7 +22,7 @@ const Data = ({ prayersOfDay, fetchPrayersOfDay }) => {
   }, [fetchPrayersOfDay])
 
   return (
-    <Cards prayers={prayersOfDay} />
+    <Cards prayers={prayersOfDay.prayers} />
   )
 }
 

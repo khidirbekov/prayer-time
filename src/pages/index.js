@@ -13,7 +13,7 @@ const mapStateToProps = ({ darkTheme }) => {
 }
 
 const Main = ({ darkTheme }) => {
-  const [theme, setTheme] = useState(darkTheme)
+  const [theme, setTheme] = useState(darkTheme.theme)
   const changeColorTheme = (value) => {
     setTheme(value)
   }
