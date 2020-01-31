@@ -5,8 +5,8 @@ import './style.css'
 import { Icon } from 'antd'
 
 import { connect } from 'react-redux'
-import { getCitiesList } from '../../store/actions/cities'
-import { getPrayersOfDayByAddress } from '../../store/actions/prayers'
+import { setupCities } from '../../store/actions/cities'
+import { setupPrayersOfDay } from '../../store/actions/prayers'
 
 import SearchImg from '../../assets/images/search.svg'
 
@@ -18,8 +18,8 @@ const mapStateToProps = ({ cities }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchCities: city => dispatch(getCitiesList(city)),
-    fetchPrayers: city => dispatch(getPrayersOfDayByAddress(city))
+    fetchCities: query => dispatch(setupCities(query)),
+    fetchPrayers: city => dispatch(setupPrayersOfDay(city))
   }
 }
 
@@ -36,8 +36,9 @@ const SearchInput = React.memo(({ cities, fetchCities, fetchPrayers }) => {
   }
 
   const handleInput = async event => {
+    const query = event.target.value
     setLoading(true)
-    await fetchCities(event.target.value)
+    await fetchCities(query)
     setLoading(false)
   }
 

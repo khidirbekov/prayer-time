@@ -1,10 +1,13 @@
 import { combineReducers } from 'redux'
-import { prayersOfDay } from './prayers'
-import { darkTheme } from './theme'
+
 import { cities } from './cities'
+import { theme } from './theme'
+import { loading } from './loading'
+import { prayersOfDay } from './prayers'
 
 export default combineReducers({
-  prayersOfDay,
-  darkTheme,
-  cities
+  cities,
+  theme,
+  loading,
+  prayersOfDay
 })

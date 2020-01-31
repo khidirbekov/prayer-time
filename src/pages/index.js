@@ -6,24 +6,24 @@ import PrayerCards from '../components/prayer-cards'
 
 import { connect } from 'react-redux'
 
-const mapStateToProps = ({ darkTheme }) => {
+const mapStateToProps = ({ theme }) => {
   return {
-    darkTheme
+    theme
   }
 }
 
-const Main = ({ darkTheme }) => {
-  const [theme, setTheme] = useState(darkTheme.theme)
+const Main = ({ theme }) => {
+  const [isDarkTheme, setIsDarkTheme] = useState(theme.isDark)
   const changeColorTheme = (value) => {
-    setTheme(value)
+    setIsDarkTheme(value)
   }
 
   useEffect(() => {
-    setTheme(darkTheme)
-  }, [darkTheme])
+    setIsDarkTheme(theme.isDark)
+  }, [theme.isDark])
 
   return (
-    <div className='main' style={theme ? themes.dark : themes.light}>
+    <div className='main' style={isDarkTheme ? themes.dark : themes.light}>
       <Header changeColorTheme={changeColorTheme} themeStatus={theme} />
       <PrayerCards />
     </div>

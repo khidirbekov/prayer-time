@@ -5,21 +5,38 @@ import { Switch } from 'antd'
 
 import SearchInput from '../search-input'
 
-import { getCitiesList } from '../../store/actions/cities'
+import { setDarkTheme } from '../../store/actions/theme'
+import { connect } from 'react-redux'
 
-const Header = ({ changeColorTheme, time, themeStatus }) => {
+const mapStateToProps = ({ theme }) => {
+  return {
+    theme
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setDarkTheme: (isDarkTheme) => dispatch(setDarkTheme(isDarkTheme))
+  }
+}
+
+const Header = ({ theme, setDarkTheme, time, themeStatus }) => {
+  const handleTheme = (value) => {
+    setDarkTheme(value)
+  }
+
   return (
     <header className='header'>
       <div className='header--logo'>
         PrayTime
       </div>
-      <SearchInput searchFunction={getCitiesList} />
+      <SearchInput />
       <div className='header__info'>
-        <Switch defaultChecked={false} checked={themeStatus} onChange={(checked) => changeColorTheme(checked)} />
-        {time}
+        <Switch defaultChecked={theme.isDarkTheme} onChange={(isChecked) => handleTheme(isChecked)} />
+        <span className='header__time'>{time}</span>
       </div>
     </header>
   )
 }
 
-export default Header
+export default connect(mapStateToProps, mapDispatchToProps)(Header)

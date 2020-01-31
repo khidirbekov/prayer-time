@@ -2,27 +2,30 @@ import React, { useEffect } from 'react'
 import Cards from './view.js'
 
 import { connect } from 'react-redux'
-import { getPrayersOfDayByCity } from '../../store/actions/prayers'
+import { setupPrayersOfDay } from '../../store/actions/prayers'
 
-const mapStateToProps = ({ prayersOfDay }) => {
+const mapStateToProps = ({ loading, prayersOfDay }) => {
   return {
+    loading,
     prayersOfDay
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchPrayersOfDay: () => dispatch(getPrayersOfDayByCity())
+    fetchPrayersOfDay: () => dispatch(setupPrayersOfDay())
   }
 }
 
-const Data = ({ prayersOfDay, fetchPrayersOfDay }) => {
+const Data = ({ loading, prayersOfDay, fetchPrayersOfDay }) => {
+  const isLoading = loading.isLoadingPrayersOfDay
+
   useEffect(() => {
     fetchPrayersOfDay()
   }, [fetchPrayersOfDay])
 
   return (
-    <Cards prayers={prayersOfDay.prayers} />
+    <Cards isLoading={isLoading} address={prayersOfDay.address} prayers={prayersOfDay.prayers} />
   )
 }
 

@@ -1,13 +1,13 @@
 
 const initialState = {
-  theme: false
+  isDark: false
 }
 
-export const darkTheme = (state = initialState, action) => {
+export const theme = (state = initialState, action) => {
   switch (action.type) {
     case 'SET_DARK_THEME': return {
       ...state,
-      theme: action.theme
+      isDark: action.isDark
     }
     default: return state
   }

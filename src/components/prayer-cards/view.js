@@ -1,10 +1,11 @@
 import React from 'react'
 import './style.css'
-import { Icon } from 'antd'
+
+import Preloader from '../preloader'
 
 import Card from './card'
 
-const PrayerCards = ({ prayers }) => {
+const PrayerCards = ({ isLoading, prayers, address }) => {
   const showPrayersCards = () => {
     if (prayers.length) {
       return prayers.map((pray, index) => {
@@ -15,8 +16,13 @@ const PrayerCards = ({ prayers }) => {
 
   return (
     <section className='prayer-cards container'>
-      <div className='prayer-cards--title'>Расписание на сегодня</div>
-      {prayers.length ? showPrayersCards() : <Icon type='loading' className='prayer-cards__loader' />}
+      <div className='prayer-cards--title'>
+        Расписание на сегодня
+      </div>
+      {prayers.length && !isLoading ? showPrayersCards() : <Preloader />}
+      <div className='prayer-cards__address'>
+        {address}
+      </div>
     </section>
   )
 }

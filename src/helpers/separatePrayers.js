@@ -1,34 +1,34 @@
-import fajrImg from '../assets/images/fajr.jpg'
-import dhuhrImg from '../assets/images/dhuhr.jpg'
-import asrImg from '../assets/images/asr.jpg'
-import maghribImg from '../assets/images/maghrib.jpg'
-import ishaImg from '../assets/images/isha.jpg'
+import fajrImg from '../assets/images/fajr.svg'
+import dhuhrImg from '../assets/images/dhuhr.svg'
+import asrImg from '../assets/images/asr.svg'
+import maghribImg from '../assets/images/maghrib.svg'
+import ishaImg from '../assets/images/isha.svg'
 
-export default data => {
+export default ({ data }) => {
   return [
     {
-      name: 'Фаджр',
-      time: data.data.timings.Fajr,
+      name: 'Утренний',
+      time: data.timings.Fajr,
       image: fajrImg
     },
     {
-      name: 'Зухр',
-      time: data.data.timings.Dhuhr,
+      name: 'Полуденный',
+      time: data.timings.Dhuhr,
       image: dhuhrImg
     },
     {
-      name: 'Аср',
-      time: data.data.timings.Asr,
+      name: 'Послеполуденный',
+      time: data.timings.Asr,
       image: asrImg
     },
     {
-      name: 'Магриб',
-      time: data.data.timings.Maghrib,
+      name: 'Вечерний',
+      time: data.timings.Maghrib,
       image: maghribImg
     },
     {
-      name: 'Иша',
-      time: data.data.timings.Isha,
+      name: 'Ночной',
+      time: data.timings.Isha,
       image: ishaImg
     }
   ]

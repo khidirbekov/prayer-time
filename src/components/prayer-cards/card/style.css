@@ -5,18 +5,14 @@
   padding: 140px 90px;
   margin: 15px;
   height: 240px;
-  /* width: 150px !important; */
-  object-fit: cover;
+  background: #f3f6f9;
   background-repeat: no-repeat;
   background-position: 100% center;
-  background-size: 110%;
+  background-size: 100%;
   overflow: hidden;
-  /* border: 1px solid #ddd; */
-  box-shadow: 0 1px 10px rgba(0, 0, 0, .2);
 }
 
 .prayer-cards__item-content {
-  /* width: 70px; */
   padding: 10px 25px; 
   border-radius: 25px;
   position: absolute;
@@ -27,16 +23,15 @@
   background: linear-gradient(rgba(255, 255, 255, .6),rgba(254, 254, 254, .6));
   text-align: center;
   color: #444;
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, .2); */
 }
 
 .prayer_cards__item-name {
   background: none;
-  font-size: 30px;
+  font-size: 18px;
   position: absolute;
   font-weight: 700;
   top: 58%;
   left: 50%;
-  color: white;
+  color: #32325c;
   transform: translate(-50%, -50%);
 }

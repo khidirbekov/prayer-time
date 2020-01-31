@@ -9,18 +9,25 @@
 }
 
 .search__input {
-  border: 1px solid #eee;
+  background: #f3f6f9;
+  border: 1px solid #f3f6f9;
   border-right: 0;
   border-radius: 7px 0 0 7px;
   padding: 10px;
   outline: none;
+  color: #8798aa;
+}
+
+.search__input::placeholder {
+  color: #8798aa;
 }
 
 .search__label {
+  color: #8798aa;
   display: flex;
   align-items: center;
-  background: white;
-  border: 1px solid #eee;
+  background: #f3f6f9;
+  border: 1px solid #f3f6f9;
   border-radius: 0 7px 7px 0;
   border-left: 0;
   width: 24px;
@@ -29,6 +36,11 @@
 
 .search__label img {
   width: 100%;
+}
+
+.search__input:focus, .search__input:focus + .search__label {
+  background: white;
+  border-color: rgba(190, 176, 244, 0.4);
 }
 
 .search__input:focus + .search__content  {

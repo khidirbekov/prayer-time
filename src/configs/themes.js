@@ -4,7 +4,7 @@ export const themes = {
     color: '#fff'
   },
   light: {
-    background: '#fff',
-    color: '#333'
+    background: '#eef2f7',
+    color: '#585a83'
   }
 }

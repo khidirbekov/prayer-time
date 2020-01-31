@@ -1,8 +1,5 @@
 import axios from 'axios'
-
-import dayjs from 'dayjs'
-
-import { setDarkTheme } from './theme'
+import { setLoadingStatusPrayersOfDay } from './loading'
 import separatePrayers from '../../helpers/separatePrayers'
 
 export const setPrayers = (prayers) => {
@@ -12,43 +9,32 @@ export const setPrayers = (prayers) => {
   }
 }
 
-export const getPrayersOfDayByCity = (city = 'rostov-on-don') => {
-  return async (dispatch) => {
-    const { data } = await axios.get(`${process.env.REACT_APP_HOST}/timingsByCity`, {
-      headers: {
-        'x-rapidapi-host': process.env.REACT_APP_HOST,
-        'x-rapidapi-key': process.env.REACT_APP_KEY
-      },
-      params: {
-        city,
-        country: 'russia',
-        method: 6
-      }
-    })
-
-    const prayers = separatePrayers(data)
-
-    // if it's time of isha then dark theme on
-    dispatch(setDarkTheme(dayjs().format('HH:mm') > prayers[4].time || dayjs().format('HH:mm') < prayers[0].time))
-
-    dispatch(setPrayers(prayers))
+export const setAddress = (address) => {
+  return {
+    type: 'SET_ADDRESS',
+    address
   }
 }
 
-export const getPrayersOfDayByAddress = (address) => {
+export const setupPrayersOfDay = (address = 'Rostov-na-Donu, Russia') => {
   return async (dispatch) => {
-    const { data } = await axios.get(`${process.env.REACT_APP_HOST}/timingsByAddress`, {
-      headers: {
-        'x-rapidapi-host': process.env.REACT_APP_HOST,
-        'x-rapidapi-key': process.env.REACT_APP_KEY
-      },
-      params: {
-        address
-      }
-    })
-
+    dispatch(setAddress(address))
+    await dispatch(setLoadingStatusPrayersOfDay(true))
+    const data = await getPrayersOfDay(address)
     const prayers = separatePrayers(data)
-
     dispatch(setPrayers(prayers))
+    dispatch(setLoadingStatusPrayersOfDay(false))
   }
+}
+
+const getPrayersOfDay = async (address) => {
+  const FIXED_ISHA_ANGLE_INTERVAL = 8
+  const { data } = await axios.get(`${process.env.REACT_APP_HOST}/timingsByAddress`, {
+    params: {
+      address,
+      method: FIXED_ISHA_ANGLE_INTERVAL
+    }
+  })
+
+  return data
 }

@@ -1,6 +1,6 @@
-export const setDarkTheme = (theme) => {
+export const setDarkTheme = themeFlag => {
   return {
     type: 'SET_DARK_THEME',
-    theme
+    isDark: themeFlag
   }
 }
