@@ -1,9 +1,11 @@
 import React from 'react'
 
+import './style.css'
+
 export default () => {
   return (
-    <div className='header__logo'>
+    <h1 className='logo'>
       PrayTime
-    </div>
+    </h1>
   )
 }

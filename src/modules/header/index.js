@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.css'
 
-import { Switch } from 'antd'
+import Switch from '../../components/switch'
 
 import Logo from '../../components/logo'
 import SearchInput from '../../components/search-input'
@@ -32,7 +32,7 @@ const Header = ({ theme, setDarkTheme }) => {
       <Logo />
       <SearchInput />
       <div className='header__info'>
-        <Switch defaultChecked={theme.isDarkTheme} onChange={(isChecked) => handleTheme(isChecked)} />
+        <Switch checked={theme.isDarkTheme} onChange={(value) => handleTheme(value)} />
         <LiveTime />
       </div>
     </header>

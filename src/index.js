@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom'
 import Main from './pages'
 import * as serviceWorker from './serviceWorker'
 
-import 'antd/dist/antd.css'
-
 import { Provider } from 'react-redux'
 import configureStore from './store'
 

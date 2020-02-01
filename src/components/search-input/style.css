@@ -48,9 +48,10 @@
 }
 
 .search__loading {
-  position: absolute;
-  right: 30px;
-  top: 14px;
+  position: absolute !important;
+  display: block;
+  right: 50px;
+  top: 15px;
 }
 
 .search__result__wrapper {

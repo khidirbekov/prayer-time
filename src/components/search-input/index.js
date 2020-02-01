@@ -2,14 +2,13 @@ import React, { useState } from 'react'
 
 import './style.css'
 
-import { Icon } from 'antd'
-
 import { connect } from 'react-redux'
 import { setupCities } from '../../store/actions/cities'
 import { setupPrayersOfDay } from '../../store/actions/prayers'
 
 import SearchImg from '../../assets/images/search.svg'
 import { isExist } from '../../helpers/general'
+import Preloader from '../preloader'
 
 const mapStateToProps = ({ cities }) => {
   return {
@@ -72,7 +71,7 @@ const SearchInput = React.memo(({ cities, fetchCities, fetchPrayers }) => {
           <img src={SearchImg} alt='search' />
         </label>
       </div>
-      {loading && <Icon type='loading' className='search__loading' />}
+      {loading && <Preloader className='search__loading' size={15} />}
       {optionsStatus && (
         <div className='search__result__wrapper'>
           {showResults()}

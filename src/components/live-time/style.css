@@ -1,3 +1,5 @@
 .time {
+  display: block;
+  width: 30px;
   color: #8e6ed6;
 }

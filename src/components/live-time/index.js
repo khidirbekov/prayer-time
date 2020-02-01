@@ -14,6 +14,6 @@ export default () => {
   }, [time])
 
   return (
-    <span className='time'>{time}</span>
+    <div className='time'>{time}</div>
   )
 }

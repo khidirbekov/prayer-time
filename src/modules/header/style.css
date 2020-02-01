@@ -8,12 +8,12 @@
   box-shadow: 0 5px 25px 0 rgba(50, 50, 92, 0.15);
 }
 
-.header__logo{
-  color: #32325c;
-  font-weight: 900;
-  font-size: 30px;
+.header__info {
+  display: flex;
+  align-items: center;
+  margin: 10px;
 }
 
-.header__info button {
-  margin: 10px 10px;
+.header__info * {
+  padding: 10px;
 }
