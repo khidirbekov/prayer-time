@@ -1,4 +1,4 @@
-.prayer-cards__item {
+.prayer-card {
   font-family: 'Roboto';
   position: relative;
   border-radius: 25px;
@@ -12,7 +12,18 @@
   overflow: hidden;
 }
 
-.prayer-cards__item-content {
+.prayer_card__name {
+  background: none;
+  font-size: 18px;
+  position: absolute;
+  font-weight: 700;
+  top: 58%;
+  left: 50%;
+  color: #32325c;
+  transform: translate(-50%, -50%);
+}
+
+.prayer-card__time {
   padding: 10px 25px; 
   border-radius: 25px;
   position: absolute;
@@ -23,15 +34,4 @@
   background: linear-gradient(rgba(255, 255, 255, .6),rgba(254, 254, 254, .6));
   text-align: center;
   color: #444;
-}
-
-.prayer_cards__item-name {
-  background: none;
-  font-size: 18px;
-  position: absolute;
-  font-weight: 700;
-  top: 58%;
-  left: 50%;
-  color: #32325c;
-  transform: translate(-50%, -50%);
 }

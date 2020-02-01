@@ -9,10 +9,11 @@ import { setupCities } from '../../store/actions/cities'
 import { setupPrayersOfDay } from '../../store/actions/prayers'
 
 import SearchImg from '../../assets/images/search.svg'
+import { isExist } from '../../helpers/general'
 
 const mapStateToProps = ({ cities }) => {
   return {
-    cities
+    cities: cities.cities
   }
 }
 
@@ -43,8 +44,8 @@ const SearchInput = React.memo(({ cities, fetchCities, fetchPrayers }) => {
   }
 
   const showResults = () => {
-    if (cities && cities.cities && cities.cities.length) {
-      return cities.cities.map(city => {
+    if (isExist(cities)) {
+      return cities.map(city => {
         return (
           <li key={city.name} onClick={() => setValue(city.name)} className='search__result'>
             {city.name}

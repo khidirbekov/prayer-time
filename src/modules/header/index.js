@@ -3,7 +3,9 @@ import './style.css'
 
 import { Switch } from 'antd'
 
-import SearchInput from '../search-input'
+import Logo from '../../components/logo'
+import SearchInput from '../../components/search-input'
+import LiveTime from '../../components/live-time'
 
 import { setDarkTheme } from '../../store/actions/theme'
 import { connect } from 'react-redux'
@@ -20,20 +22,18 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const Header = ({ theme, setDarkTheme, time, themeStatus }) => {
+const Header = ({ theme, setDarkTheme }) => {
   const handleTheme = (value) => {
     setDarkTheme(value)
   }
 
   return (
     <header className='header'>
-      <div className='header--logo'>
-        PrayTime
-      </div>
+      <Logo />
       <SearchInput />
       <div className='header__info'>
         <Switch defaultChecked={theme.isDarkTheme} onChange={(isChecked) => handleTheme(isChecked)} />
-        <span className='header__time'>{time}</span>
+        <LiveTime />
       </div>
     </header>
   )

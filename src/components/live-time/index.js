@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 
 import dayjs from 'dayjs'
 
-import Header from './view'
+import './style.css'
 
-const Data = ({ changeColorTheme, themeStatus }) => {
+export default () => {
   const [time, setTime] = useState(dayjs().format('HH:mm:ss'))
 
   useEffect(() => {
@@ -13,7 +13,7 @@ const Data = ({ changeColorTheme, themeStatus }) => {
     }, 1000)
   }, [time])
 
-  return (<Header themeStatus={themeStatus} changeColorTheme={changeColorTheme} time={time} />)
+  return (
+    <span className='time'>{time}</span>
+  )
 }
-
-export default Data

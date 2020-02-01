@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import Header from '../components/header'
+import Header from '../modules/header'
 import './style.css'
 import { themes } from '../configs/themes'
-import PrayerCards from '../components/prayer-cards'
+
+import ScheduleOfDay from '../modules/schedule-of-day'
 
 import { connect } from 'react-redux'
 
@@ -25,7 +26,7 @@ const Main = ({ theme }) => {
   return (
     <div className='main' style={isDarkTheme ? themes.dark : themes.light}>
       <Header changeColorTheme={changeColorTheme} themeStatus={theme} />
-      <PrayerCards />
+      <ScheduleOfDay />
     </div>
   )
 }
