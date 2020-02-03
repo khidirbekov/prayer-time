@@ -46,3 +46,13 @@ body {
     max-width: 1140px;
   }
 }
+
+.dark {
+  background:  #191d28;
+  color: #fff;
+}
+
+.light {
+  background: #eef2f7;
+  color: #585a83;
+}

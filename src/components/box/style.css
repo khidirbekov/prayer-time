@@ -1,5 +1,5 @@
 .box {
-  margin-top: 40px;
+  margin-top: 25px;
   border-radius: 25px;
   display: flex;
   width: 100%;
@@ -30,4 +30,13 @@
   font-size: 18px;
   text-align: left;
   color: #8e6ed6;
+}
+
+.dark .box {
+  background: #282e3d;
+}
+
+.dark .box__title {
+  background: #2d3344;
+  color: #ddd;
 }

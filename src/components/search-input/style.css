@@ -69,7 +69,7 @@
 
 .search__result__wrapper::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: rgb(8, 95, 172);
+  background-color: #6244a8;
   border-radius: 0 7px 7px 0;
 }
 
@@ -79,7 +79,7 @@
 }
 
 .search__result__wrapper::-webkit-scrollbar-thumb {
-  background-color: rgb(16, 134, 238);
+  background-color: #8d6ed6;
   border-radius: 0 7px 7px 0;
   outline: 1px solid rgb(197, 223, 245);
 }
@@ -93,6 +93,25 @@
 }
 
 .search__result:hover {
-  background: rgb(197, 223, 245);
+  background: #8d6ed6;
+  color: #fefefe;
   cursor: pointer;
+}
+
+.dark .search__result__wrapper {
+  background: #333a4d;
+}
+
+.dark .search__result:hover {
+  background: #8d6ed6;
+}
+
+.dark .search__input, .dark .search__label {
+  background: #2d3344;
+  border-color: #282e3d;
+}
+
+.dark .search__input:focus, .dark .search__input:focus + .search__label {
+  background: #333a4d;
+  border-color: #282e3d;
 }

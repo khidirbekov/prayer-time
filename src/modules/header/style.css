@@ -1,17 +1,20 @@
 .header {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 0px;
+  box-shadow: 0 5px 25px 0 rgba(50, 50, 92, 0.15);
+}
+
+.header__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 25px 40px;
-  box-shadow: 0 5px 25px 0 rgba(50, 50, 92, 0.15);
 }
 
 .header__info {
   display: flex;
   align-items: center;
-  margin: 10px;
+  margin: 0;
 }
 
 .header__info * {

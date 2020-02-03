@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import Header from '../modules/header'
 import './style.css'
-import { themes } from '../configs/themes'
 
 import ScheduleOfDay from '../modules/schedule-of-day'
+import ScheduleOfMonth from '../modules/schedule-of-month'
 
 import { connect } from 'react-redux'
 
@@ -24,9 +24,10 @@ const Main = ({ theme }) => {
   }, [theme.isDark])
 
   return (
-    <div className='main' style={isDarkTheme ? themes.dark : themes.light}>
+    <div className={isDarkTheme ? 'dark' : 'light'}>
       <Header changeColorTheme={changeColorTheme} themeStatus={theme} />
       <ScheduleOfDay />
+      <ScheduleOfMonth />
     </div>
   )
 }

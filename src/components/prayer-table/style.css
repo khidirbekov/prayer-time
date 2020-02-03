@@ -1,0 +1,22 @@
+.prayer-table {
+  border-color: #8e6ed6;
+  width: 100%;
+  padding: 0 55px;
+  padding-bottom: 10px;
+}
+
+.prayer-table thead {
+  border: 1px solid #8e6ed6;
+  font-weight: 900;
+  color: #32325c;
+}
+
+.prayer-table tbody tr {
+  border-top: 1px solid #8e6ed6;
+  border-bottom: 1px solid #8e6ed6;
+  padding: 10px 0;
+}
+
+.dark .prayer-table thead {
+  color: #8d6ed6;
+}

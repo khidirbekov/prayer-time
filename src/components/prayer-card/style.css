@@ -12,7 +12,7 @@
   overflow: hidden;
 }
 
-.prayer_card__name {
+.prayer-card__name {
   background: none;
   font-size: 18px;
   position: absolute;
@@ -34,4 +34,12 @@
   background: linear-gradient(rgba(255, 255, 255, .6),rgba(254, 254, 254, .6));
   text-align: center;
   color: #444;
+}
+
+.dark .prayer-card {
+  background-color: #2d3344;
+}
+
+.dark .prayer-card__name {
+  color: #eee;
 }

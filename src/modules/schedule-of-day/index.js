@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import './style.css'
 
 import { isExist } from '../../helpers/general'
 
@@ -10,10 +9,10 @@ import Preloader from '../../components/preloader'
 import Box from '../../components/box'
 import Card from '../../components/prayer-card'
 
-const mapStateToProps = ({ loading, prayersOfDay }) => {
+const mapStateToProps = ({ loading, prayers }) => {
   return {
     loading,
-    prayersOfDay
+    prayers
   }
 }
 
@@ -23,17 +22,17 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const PrayerCards = ({ loading, prayersOfDay, fetchPrayersOfDay }) => {
-  const { address, prayers } = prayersOfDay
-  const isLoaded = loading.isLoadingPrayersOfDay
+const PrayerCards = ({ loading, prayers, fetchPrayersOfDay }) => {
+  const { address, prayersOfDay } = prayers
+  const isLoaded = loading.isLoadedPrayersOfDay
 
   useEffect(() => {
     fetchPrayersOfDay()
   }, [fetchPrayersOfDay])
 
   const showPrayersCards = () => {
-    if (isExist(prayers) && !isLoaded) {
-      return prayers.map((pray, index) => {
+    if (isExist(prayersOfDay) && isLoaded) {
+      return prayersOfDay.map((pray, index) => {
         return <Card key={index} name={pray.name} time={pray.time} image={pray.image} />
       })
     }

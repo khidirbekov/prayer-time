@@ -1,35 +1,64 @@
 import axios from 'axios'
-import { setLoadingStatusPrayersOfDay } from './loading'
+import { setLoadingStatusPrayersOfDay, setLoadingStatusPrayersOfMonth } from './loading'
 import separatePrayers from '../../helpers/separatePrayers'
 
-export const setPrayers = (prayers) => {
+import { SET_ADDRESS, SET_PRAYERS_OF_DAY, SET_PRAYERS_OF_MONTH } from '../types'
+import { FIXED_ISHA_ANGLE_INTERVAL } from '../../configs/prayer-methods'
+
+export const setPrayersOfDay = prayersOfDay => {
   return {
-    type: 'SET_PRAYERS',
-    prayers
+    type: SET_PRAYERS_OF_DAY,
+    prayersOfDay
   }
 }
 
-export const setAddress = (address) => {
+export const setAddress = address => {
   return {
-    type: 'SET_ADDRESS',
+    type: SET_ADDRESS,
     address
   }
 }
 
 export const setupPrayersOfDay = (address = 'Rostov-na-Donu, Russia') => {
-  return async (dispatch) => {
+  return async dispatch => {
     dispatch(setAddress(address))
-    await dispatch(setLoadingStatusPrayersOfDay(true))
+    await dispatch(setLoadingStatusPrayersOfDay(false))
     const data = await getPrayersOfDay(address)
     const prayers = separatePrayers(data)
-    dispatch(setPrayers(prayers))
-    dispatch(setLoadingStatusPrayersOfDay(false))
+    dispatch(setPrayersOfDay(prayers))
+    dispatch(setLoadingStatusPrayersOfDay(true))
   }
 }
 
-const getPrayersOfDay = async (address) => {
-  const FIXED_ISHA_ANGLE_INTERVAL = 8
+const getPrayersOfDay = async address => {
   const { data } = await axios.get(`${process.env.REACT_APP_HOST}/timingsByAddress`, {
+    params: {
+      address,
+      method: FIXED_ISHA_ANGLE_INTERVAL
+    }
+  })
+
+  return data
+}
+
+export const setPrayersOfMonth = prayersOfMonth => {
+  return {
+    type: SET_PRAYERS_OF_MONTH,
+    prayersOfMonth
+  }
+}
+
+export const setupPrayersOfMonth = (address = 'Rostov-na-Donu, Russia') => {
+  return async dispatch => {
+    await dispatch(setLoadingStatusPrayersOfMonth(false))
+    const { data } = await getPrayersOfMonth(address)
+    dispatch(setPrayersOfMonth(data))
+    await dispatch(setLoadingStatusPrayersOfMonth(true))
+  }
+}
+
+const getPrayersOfMonth = async address => {
+  const { data } = await axios.get(`${process.env.REACT_APP_HOST}/calendarByAddress`, {
     params: {
       address,
       method: FIXED_ISHA_ANGLE_INTERVAL

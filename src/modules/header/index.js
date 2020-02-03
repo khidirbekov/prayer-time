@@ -29,11 +29,13 @@ const Header = ({ theme, setDarkTheme }) => {
 
   return (
     <header className='header'>
-      <Logo />
-      <SearchInput />
-      <div className='header__info'>
-        <Switch checked={theme.isDarkTheme} onChange={(value) => handleTheme(value)} />
-        <LiveTime />
+      <div className='header__container container'>
+        <Logo />
+        <SearchInput />
+        <div className='header__info'>
+          <Switch checked={theme.isDarkTheme} onChange={(value) => handleTheme(value)} />
+          <LiveTime />
+        </div>
       </div>
     </header>
   )
