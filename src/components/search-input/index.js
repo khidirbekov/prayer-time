@@ -4,7 +4,7 @@ import './style.css'
 
 import { connect } from 'react-redux'
 import { setupCities } from '../../store/actions/cities'
-import { setupPrayersOfDay } from '../../store/actions/prayers'
+import { setupPrayersOfDay, setupPrayersOfMonth } from '../../store/actions/prayers'
 
 import SearchImg from '../../assets/images/search.svg'
 import { isExist } from '../../helpers/general'
@@ -19,20 +19,22 @@ const mapStateToProps = ({ cities }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchCities: query => dispatch(setupCities(query)),
-    fetchPrayers: city => dispatch(setupPrayersOfDay(city))
+    fetchPrayersOfDay: city => dispatch(setupPrayersOfDay(city)),
+    fetchPrayersOfMonth: city => dispatch(setupPrayersOfMonth(city))
   }
 }
 
-const SearchInput = React.memo(({ cities, fetchCities, fetchPrayers }) => {
-  const [optionsStatus, setOptionsStatus] = useState(false)
+const SearchInput = React.memo(({ cities, fetchCities, fetchPrayersOfDay, fetchPrayersOfMonth }) => {
+  const [isLoadedOptions, setIsLoadedOptions] = useState(false)
   const [loading, setLoading] = useState(false)
 
   const textInput = React.createRef()
 
   const setValue = cityName => {
     textInput.current.value = cityName
-    setOptionsStatus(false)
-    fetchPrayers(cityName)
+    setIsLoadedOptions(false)
+    fetchPrayersOfDay(cityName)
+    fetchPrayersOfMonth(cityName)
   }
 
   const handleInput = async event => {
@@ -55,14 +57,18 @@ const SearchInput = React.memo(({ cities, fetchCities, fetchPrayers }) => {
     return null
   }
 
+  const closeOptionsAfterSelectOrBlur = () => {
+    setTimeout(() => setIsLoadedOptions(false), 300)
+  }
+
   return (
     <div className='search'>
       <div className='search__content'>
         <input
           ref={textInput}
           placeholder='Введите город'
-          onFocus={() => setOptionsStatus(true)}
-          onBlur={() => setTimeout(() => setOptionsStatus(false), 300)}
+          onFocus={() => setIsLoadedOptions(true)}
+          onBlur={() => closeOptionsAfterSelectOrBlur()}
           type='text'
           className='search__input'
           onChange={event => handleInput(event)}
@@ -72,7 +78,7 @@ const SearchInput = React.memo(({ cities, fetchCities, fetchPrayers }) => {
         </label>
       </div>
       {loading && <Preloader className='search__loading' size={15} />}
-      {optionsStatus && (
+      {isLoadedOptions && (
         <div className='search__result__wrapper'>
           {showResults()}
         </div>)}
