@@ -56,3 +56,7 @@ body {
   background: #eef2f7;
   color: #585a83;
 }
+
+.dark, .light {
+  min-height: 100vh;
+}
