@@ -1,9 +1,8 @@
-import { SET_PRAYERS_OF_DAY, SET_PRAYERS_OF_MONTH, SET_ADDRESS } from '../types'
+import { SET_PRAYERS_OF_DAY, SET_PRAYERS_OF_MONTH } from '../types'
 
 const initialState = {
   prayersOfDay: [],
-  prayersOfMonth: [],
-  address: 'Rostov-na-Donu, Russia'
+  prayersOfMonth: []
 }
 
 export const prayers = (state = initialState, action) => {
@@ -15,10 +14,6 @@ export const prayers = (state = initialState, action) => {
     case SET_PRAYERS_OF_MONTH: return {
       ...state,
       prayersOfMonth: action.prayersOfMonth
-    }
-    case SET_ADDRESS: return {
-      ...state,
-      address: action.address
     }
     default: return state
   }

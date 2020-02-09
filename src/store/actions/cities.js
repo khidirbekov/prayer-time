@@ -1,20 +1,29 @@
 import axios from 'axios'
+import { SET_CITIES, SET_DEFAULT_CITY } from '../types'
 
-export const setCities = (cities) => {
+export const setCities = cities => {
   return {
-    type: 'SET_CITIES',
+    type: SET_CITIES,
     cities
   }
 }
 
-export const setupCities = (query) => {
+export const setDefaultCity = defaultCity => {
+  window.localStorage.setItem('city', defaultCity)
+  return {
+    type: SET_DEFAULT_CITY,
+    defaultCity
+  }
+}
+
+export const setupCities = query => {
   return async (dispatch) => {
     const cities = await getCities(query)
     dispatch(setCities(cities))
   }
 }
 
-const getCities = async (query) => {
+const getCities = async query => {
   const { data } = await axios.get('https://devru-latitude-longitude-find-v1.p.rapidapi.com/latlon.php', {
     headers: {
       'x-rapidapi-host': 'devru-latitude-longitude-find-v1.p.rapidapi.com',

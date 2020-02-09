@@ -9,10 +9,11 @@ import Preloader from '../../components/preloader'
 import Box from '../../components/box'
 import Card from '../../components/prayer-card'
 
-const mapStateToProps = ({ loading, prayers }) => {
+const mapStateToProps = ({ loading, prayers, cities }) => {
   return {
     loading,
-    prayers
+    prayersOfDay: prayers.prayersOfDay,
+    city: cities.defaultCity
   }
 }
 
@@ -22,8 +23,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const PrayerCards = ({ loading, prayers, fetchPrayersOfDay }) => {
-  const { address, prayersOfDay } = prayers
+const PrayerCards = ({ loading, prayersOfDay, city, fetchPrayersOfDay }) => {
   const isLoaded = loading.isLoadedPrayersOfDay
 
   useEffect(() => {
@@ -47,7 +47,7 @@ const PrayerCards = ({ loading, prayers, fetchPrayersOfDay }) => {
           {showPrayersCards()}
         </>
       }
-      description={address}
+      description={city}
     />
   )
 }

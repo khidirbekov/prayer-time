@@ -29,9 +29,9 @@ const SearchInput = React.memo(({ options, optionsValueKey = 'value', onSelect, 
     if (isExist(options)) {
       return options.map(city => {
         return (
-          <li 
-            key={city[optionsValueKey]} 
-            onClick={() => setValue(city[optionsValueKey])} 
+          <li
+            key={city[optionsValueKey]}
+            onClick={() => setValue(city[optionsValueKey])}
             className='search__result'
           >
             {city[optionsValueKey]}

@@ -9,7 +9,7 @@ import LiveTime from '../../components/live-time'
 
 import { setDarkTheme } from '../../store/actions/theme'
 import { connect } from 'react-redux'
-import { setupCities } from '../../store/actions/cities'
+import { setDefaultCity, setupCities } from '../../store/actions/cities'
 import { setupPrayersOfDay, setupPrayersOfMonth } from '../../store/actions/prayers'
 
 const mapStateToProps = ({ theme, cities }) => {
@@ -19,21 +19,33 @@ const mapStateToProps = ({ theme, cities }) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    setDarkTheme: (isDarkTheme) => dispatch(setDarkTheme(isDarkTheme)),
+    setDefaultCity: city => dispatch(setDefaultCity(city)),
+    setDarkTheme: isDarkTheme => dispatch(setDarkTheme(isDarkTheme)),
     fetchCities: query => dispatch(setupCities(query)),
     fetchPrayersOfDay: city => dispatch(setupPrayersOfDay(city)),
     fetchPrayersOfMonth: city => dispatch(setupPrayersOfMonth(city))
   }
 }
 
-const Header = ({ theme, setDarkTheme, cities, fetchCities, fetchPrayersOfDay, fetchPrayersOfMonth }) => {
-  const handleTheme = (value) => {
+const Header = props => {
+  const {
+    theme,
+    setDarkTheme,
+    cities,
+    setDefaultCity,
+    fetchCities,
+    fetchPrayersOfDay,
+    fetchPrayersOfMonth
+  } = props
+
+  const handleTheme = value => {
     setDarkTheme(value)
   }
 
   const onSelectCity = cityName => {
+    setDefaultCity(cityName)
     fetchPrayersOfDay(cityName)
     fetchPrayersOfMonth(cityName)
   }

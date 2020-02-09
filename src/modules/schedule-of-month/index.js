@@ -10,10 +10,11 @@ import Box from '../../components/box'
 
 import Table from '../../components/prayer-table'
 
-const mapStateToProps = ({ loading, prayers }) => {
+const mapStateToProps = ({ loading, prayers, cities }) => {
   return {
     loading,
-    prayers
+    prayersOfMonth: prayers.prayersOfMonth,
+    city: cities.defaultCity
   }
 }
 
@@ -23,8 +24,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const PrayerCards = ({ loading, prayers, fetchPrayersOfMonth }) => {
-  const { address, prayersOfMonth } = prayers
+const PrayerCards = ({ loading, prayersOfMonth, city, fetchPrayersOfMonth }) => {
   const isLoaded = loading.isLoadedPrayersOfMonth
 
   useEffect(() => {
@@ -54,7 +54,7 @@ const PrayerCards = ({ loading, prayers, fetchPrayersOfMonth }) => {
     <Box
       title='Расписание на месяц'
       content={isLoaded ? <Table prayers={showPrayersItems()} /> : <Preloader />}
-      description={address}
+      description={city}
     />
   )
 }
