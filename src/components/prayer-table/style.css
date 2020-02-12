@@ -20,3 +20,23 @@
 .dark .prayer-table thead {
   color: #8d6ed6;
 }
+@media (max-width: 575px) {
+  .prayer-table {
+    padding: 0;
+  }
+  .prayer-table td {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 425px) {
+  .prayer-table td {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 375px) {
+  .prayer-table td {
+    font-size: 7px;
+  }
+}

@@ -8,12 +8,12 @@ export default ({ prayers }) => {
       <thead>
         <tr>
           <td>Дата</td>
-          <td>Утренний</td>
-          <td>Восход</td>
-          <td>Полуденный</td>
-          <td>Послеполуденный</td>
-          <td>Вечерний</td>
-          <td>Ночной</td>
+          <td>Утр.</td>
+          <td>Восх.</td>
+          <td>Полуд.</td>
+          <td>Посл. полуд.</td>
+          <td>Веч.</td>
+          <td>Ноч.</td>
         </tr>
       </thead>
       <tbody>

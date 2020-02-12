@@ -5,6 +5,7 @@ body {
   box-sizing: border-box;
   /* background: var(--main-theme-color);
   color: var(--main-text-color); */
+  -webkit-overflow-scrolling: touch;
 }
 
 * {
@@ -78,4 +79,5 @@ body {
 
 .dark, .light {
   min-height: 100vh;
+  padding-bottom: 20px;
 }

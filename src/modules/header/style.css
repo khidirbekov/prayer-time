@@ -20,3 +20,15 @@
 .header__info * {
   padding: 10px;
 }
+
+@media screen and (max-width: 575px) {
+  .logo {
+    display: none;
+  }
+}
+
+@media (max-width: 374px) {
+  .header__container {
+    flex-direction: column-reverse;
+  }
+}

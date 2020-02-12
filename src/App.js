@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
 import {
   BrowserRouter as Router,
@@ -21,14 +21,8 @@ const mapStateToProps = ({ theme, cities }) => {
 }
 
 const App = ({ theme, defaultCity }) => {
-  const [isDarkTheme, setIsDarkTheme] = useState(theme.isDark)
-
-  useEffect(() => {
-    setIsDarkTheme(theme.isDark)
-  }, [theme.isDark])
-
   return (
-    <div className={isDarkTheme ? 'dark' : 'light'}>
+    <div className={theme.isDark ? 'dark' : 'light'}>
       <Router>
         <Switch>
           {isExist(defaultCity)

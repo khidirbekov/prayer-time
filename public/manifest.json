@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "PrayerTime",
+  "name": "PrayerTime - время молитв",
   "icons": [
     {
       "src": "favicon.ico",
@@ -13,8 +13,9 @@
       "sizes": "512x512"
     }	    
   ],
-  "start_url": ".",
+  "start_url": "index.html",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#eef2f7",
+  "background_color": "#eef2f7",
+  "orientation": "portrait-primary"
 }

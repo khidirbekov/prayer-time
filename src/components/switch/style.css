@@ -24,7 +24,7 @@
   height: 85%;
   border: 1px solid hsla(259, 67%, 60%, 0.336);
   background: #8056DE;
-  left: 2px;
+  left: 1px;
   top: 50%;
   transform: translate(0, -50%);
   border-radius: 50%;
@@ -33,7 +33,7 @@
 }
 
 .switch__checkbox:checked + .switch__trigger::before {
-  transform: translate(calc(100% + 2px), -50%);
+  transform: translate(calc(100% + 4px), -50%);
   background: white;
 }
 
