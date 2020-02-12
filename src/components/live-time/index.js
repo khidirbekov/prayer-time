@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
-
 import dayjs from 'dayjs'
-
 import './style.css'
 
 export default () => {
@@ -13,7 +11,5 @@ export default () => {
     }, 1000)
   }, [time])
 
-  return (
-    <div className='time'>{time}</div>
-  )
+  return <div className="time">{time}</div>
 }

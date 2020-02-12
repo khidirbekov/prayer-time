@@ -4,7 +4,7 @@ import './style.css'
 
 export default ({ prayers }) => {
   return (
-    <table className='prayer-table' cellPadding='10' cellSpacing='0'>
+    <table className="prayer-table" cellPadding="10" cellSpacing="0">
       <thead>
         <tr>
           <td>Дата</td>
@@ -16,9 +16,7 @@ export default ({ prayers }) => {
           <td>Ночной</td>
         </tr>
       </thead>
-      <tbody>
-        {prayers}
-      </tbody>
+      <tbody>{prayers}</tbody>
     </table>
   )
 }

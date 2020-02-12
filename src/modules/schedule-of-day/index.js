@@ -1,10 +1,7 @@
 import React, { useEffect } from 'react'
-
-import { isExist } from '../../helpers/general'
-
 import { connect } from 'react-redux'
+import { isExist } from '../../helpers/general'
 import { setupPrayersOfDay } from '../../store/actions/prayers'
-
 import Preloader from '../../components/preloader'
 import Box from '../../components/box'
 import Card from '../../components/prayer-card'
@@ -17,7 +14,7 @@ const mapStateToProps = ({ loading, prayers, cities }) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     fetchPrayersOfDay: () => dispatch(setupPrayersOfDay())
   }
@@ -33,7 +30,14 @@ const PrayerCards = ({ loading, prayersOfDay, city, fetchPrayersOfDay }) => {
   const showPrayersCards = () => {
     if (isExist(prayersOfDay) && isLoaded) {
       return prayersOfDay.map((pray, index) => {
-        return <Card key={index} name={pray.name} time={pray.time} image={pray.image} />
+        return (
+          <Card
+            key={index}
+            name={pray.name}
+            time={pray.time}
+            image={pray.image}
+          />
+        )
       })
     }
     return <Preloader />
@@ -41,12 +45,8 @@ const PrayerCards = ({ loading, prayersOfDay, city, fetchPrayersOfDay }) => {
 
   return (
     <Box
-      title='Расписание на сегодня'
-      content={
-        <>
-          {showPrayersCards()}
-        </>
-      }
+      title="Расписание на сегодня"
+      content={<>{showPrayersCards()}</>}
       description={city}
     />
   )

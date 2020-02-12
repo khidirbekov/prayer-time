@@ -1,13 +1,10 @@
 import React from 'react'
-import Header from '../../modules/header'
-import '../../style.css'
-
+import { connect } from 'react-redux'
 import { setDarkTheme } from '../../store/actions/theme'
-
+import Header from '../../modules/header'
 import ScheduleOfDay from '../../modules/schedule-of-day'
 import ScheduleOfMonth from '../../modules/schedule-of-month'
-
-import { connect } from 'react-redux'
+import '../../style.css'
 
 const mapStateToProps = ({ theme }) => {
   return {
@@ -22,7 +19,7 @@ const mapDispatchToProps = dispatch => {
 }
 
 const Main = ({ theme }) => {
-  const changeColorTheme = (value) => {
+  const changeColorTheme = value => {
     setDarkTheme(value)
   }
 

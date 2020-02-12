@@ -1,13 +1,9 @@
 import React, { useEffect } from 'react'
-
-import { isExist } from '../../helpers/general'
-
 import { connect } from 'react-redux'
+import { isExist } from '../../helpers/general'
 import { setupPrayersOfMonth } from '../../store/actions/prayers'
-
 import Preloader from '../../components/preloader'
 import Box from '../../components/box'
-
 import Table from '../../components/prayer-table'
 
 const mapStateToProps = ({ loading, prayers, cities }) => {
@@ -18,13 +14,18 @@ const mapStateToProps = ({ loading, prayers, cities }) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     fetchPrayersOfMonth: () => dispatch(setupPrayersOfMonth())
   }
 }
 
-const PrayerCards = ({ loading, prayersOfMonth, city, fetchPrayersOfMonth }) => {
+const PrayerCards = ({
+  loading,
+  prayersOfMonth,
+  city,
+  fetchPrayersOfMonth
+}) => {
   const isLoaded = loading.isLoadedPrayersOfMonth
 
   useEffect(() => {
@@ -52,8 +53,10 @@ const PrayerCards = ({ loading, prayersOfMonth, city, fetchPrayersOfMonth }) => 
 
   return (
     <Box
-      title='Расписание на месяц'
-      content={isLoaded ? <Table prayers={showPrayersItems()} /> : <Preloader />}
+      title="Расписание на месяц"
+      content={
+        isLoaded ? <Table prayers={showPrayersItems()} /> : <Preloader />
+      }
       description={city}
     />
   )

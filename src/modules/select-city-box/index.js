@@ -1,10 +1,8 @@
 import React from 'react'
-
+import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-
 import Box from '../../components/box'
 import SearchInput from '../../components/search-input'
-import { connect } from 'react-redux'
 import { setupCities, setDefaultCity } from '../../store/actions/cities'
 
 const mapStateToProps = ({ theme, cities }) => {
@@ -35,17 +33,17 @@ const SelectCity = ({ cities, fetchCities, setDefaultCity }) => {
 
   return (
     <Box
-      title='Выберите город'
+      title="Выберите город"
       content={
         <SearchInput
-          placeholder='Введите город'
+          placeholder="Введите город"
           onChange={handleInput}
           onSelect={onSelectCity}
           options={cities}
-          optionsValueKey='name'
+          optionsValueKey="name"
         />
       }
-      description='Введите название города, пока что нужно вводить на английском'
+      description="Введите название города, пока что нужно вводить на английском"
     />
   )
 }

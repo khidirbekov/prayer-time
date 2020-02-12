@@ -1,5 +1,4 @@
 import React, { createRef, useEffect } from 'react'
-
 import './style.css'
 
 export default ({ checked, onChange }) => {
@@ -15,13 +14,13 @@ export default ({ checked, onChange }) => {
   return (
     <>
       <input
-        className='switch__checkbox'
-        type='checkbox'
-        id='checkbox'
+        className="switch__checkbox"
+        type="checkbox"
+        id="checkbox"
         ref={switchRef}
-        onChange={(event) => onChange(event.target.checked)}
+        onChange={event => onChange(event.target.checked)}
       />
-      <label className='switch__trigger' htmlFor='checkbox' />
+      <label className="switch__trigger" htmlFor="checkbox" />
     </>
   )
 }

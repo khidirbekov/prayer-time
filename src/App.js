@@ -31,23 +31,21 @@ const App = ({ theme, defaultCity }) => {
     <div className={isDarkTheme ? 'dark' : 'light'}>
       <Router>
         <Switch>
-          {isExist(defaultCity)
-            ? (
-              <>
-                <Route path='/'>
-                  <Main />
-                </Route>
-                <Redirect to='/' />
-              </>
-            )
-            : (
-              <>
-                <Route path='/select-city'>
-                  <SelectCity />
-                </Route>
-                <Redirect to='/select-city' />
-              </>
-            )}
+          {isExist(defaultCity) ? (
+            <>
+              <Route path="/">
+                <Main />
+              </Route>
+              <Redirect to="/" />
+            </>
+          ) : (
+            <>
+              <Route path="/select-city">
+                <SelectCity />
+              </Route>
+              <Redirect to="/select-city" />
+            </>
+          )}
         </Switch>
       </Router>
     </div>

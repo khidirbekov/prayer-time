@@ -1,4 +1,7 @@
-import { SET_LOADING_STATUS_OF_DAY, SET_LOADING_STATUS_OF_MONTH } from '../types'
+import {
+  SET_LOADING_STATUS_OF_DAY,
+  SET_LOADING_STATUS_OF_MONTH
+} from '../types'
 
 export const setLoadingStatusPrayersOfDay = loadingStatus => {
   return {
