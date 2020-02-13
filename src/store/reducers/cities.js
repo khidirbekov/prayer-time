@@ -8,14 +8,17 @@ const initialState = {
 
 export const cities = (state = initialState, action) => {
   switch (action.type) {
-    case SET_CITIES: return {
-      ...state,
-      cities: action.cities
-    }
-    case SET_DEFAULT_CITY: return {
-      ...state,
-      defaultCity: action.defaultCity
-    }
-    default: return state
+    case SET_CITIES:
+      return {
+        ...state,
+        cities: action.cities
+      }
+    case SET_DEFAULT_CITY:
+      return {
+        ...state,
+        defaultCity: action.defaultCity
+      }
+    default:
+      return state
   }
 }

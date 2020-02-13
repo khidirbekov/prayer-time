@@ -1,16 +1,16 @@
 import React from 'react'
-import './style.css'
-
+import { connect } from 'react-redux'
 import Switch from '../../components/switch'
-
 import Logo from '../../components/logo'
 import SearchInput from '../../components/search-input'
 import LiveTime from '../../components/live-time'
-
 import { setDarkTheme } from '../../store/actions/theme'
-import { connect } from 'react-redux'
 import { setDefaultCity, setupCities } from '../../store/actions/cities'
-import { setupPrayersOfDay, setupPrayersOfMonth } from '../../store/actions/prayers'
+import './style.css'
+import {
+  setupPrayersOfDay,
+  setupPrayersOfMonth
+} from '../../store/actions/prayers'
 
 const mapStateToProps = ({ theme, cities }) => {
   return {
@@ -55,18 +55,21 @@ const Header = props => {
   }
 
   return (
-    <header className='header'>
-      <div className='header__container container'>
+    <header className="header">
+      <div className="header__container container">
         <Logo />
         <SearchInput
-          placeholder='Введите город'
+          placeholder="Введите город"
           onChange={handleInput}
           onSelect={onSelectCity}
           options={cities}
-          optionsValueKey='name'
+          optionsValueKey="name"
         />
-        <div className='header__info'>
-          <Switch checked={theme.isDarkTheme} onChange={(value) => handleTheme(value)} />
+        <div className="header__info">
+          <Switch
+            checked={theme.isDarkTheme}
+            onChange={value => handleTheme(value)}
+          />
           <LiveTime />
         </div>
       </div>
