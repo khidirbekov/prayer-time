@@ -5,7 +5,7 @@
   box-sizing: border-box;
   padding: 25px 0px;
   box-shadow: 0 5px 25px 0 rgba(50, 50, 92, 0.15);
-  background: #eef2f7;
+  /* background: #eef2f7; */
   z-index: 99999999999;
   transition: all .1s ease-in-out;
 }
@@ -22,9 +22,6 @@
   margin: 0;
 }
 
-.header__info * {
-  padding: 10px;
-}
 
 @media screen and (max-width: 575px) {
   .logo {

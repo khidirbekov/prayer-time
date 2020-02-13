@@ -1,16 +1,17 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useRef, useEffect } from 'react'
-import './style.css'
-
+import { connect } from 'react-redux'
 import Switch from '../../components/switch'
-
 import Logo from '../../components/logo'
 import SearchInput from '../../components/search-input'
 import LiveTime from '../../components/live-time'
-
 import { setDarkTheme } from '../../store/actions/theme'
-import { connect } from 'react-redux'
 import { setDefaultCity, setupCities } from '../../store/actions/cities'
-import { setupPrayersOfDay, setupPrayersOfMonth } from '../../store/actions/prayers'
+import './style.css'
+import {
+  setupPrayersOfDay,
+  setupPrayersOfMonth
+} from '../../store/actions/prayers'
 
 const mapStateToProps = ({ theme, cities }) => {
   return {
@@ -40,7 +41,7 @@ const Header = props => {
     fetchPrayersOfMonth
   } = props
 
-  const headerRef = useRef()
+  const headerRef = useRef(null)
 
   const handleTheme = value => {
     setDarkTheme(value)
@@ -56,70 +57,64 @@ const Header = props => {
     await fetchCities(query)
   }
 
-  useEffect(() => {
-    if (theme.isDark) {
-      headerRef.current.classList.add('dark')
-      headerRef.current.classList.remove('light')
-    } else {
-      headerRef.current.classList.remove('dark')
-      headerRef.current.classList.add('light')
-    }
-  }, [theme.isDark])
-
-  
-
-  useEffect(() => scrollEventListener(), [])
-
   const scrollEventListener = () => {
-    console.log(1234)
-    window.addEventListener('scroll', function() {
-      const isStartToScroll = window.pageYOffset > 0
-      if (isStartToScroll) {
-        unpinInTopByRef(headerRef)
-      } else {
-        pinInTopByRef(headerRef)
-      }
+    const isStartToScroll = window.pageYOffset > 0
+    if (isStartToScroll) {
+      unpinInTopByRef(headerRef)
+    } else {
+      pinInTopByRef(headerRef)
+    }
 
-      const isScrolled = window.pageYOffset > 70
+    const isScrolled = window.pageYOffset > 70
 
-      if (isScrolled) {
-        hideByRef(headerRef)
-      } else {
-        showByRef(headerRef)
-      }
-    })
+    if (isScrolled) {
+      hideByRef(headerRef)
+    } else {
+      showByRef(headerRef)
+    }
   }
+
+  useEffect(() => {
+    window.addEventListener('scroll', scrollEventListener)
+
+    return () => window.removeEventListener('scroll', scrollEventListener)
+  }, [scrollEventListener])
 
   const unpinInTopByRef = ref => {
     removeExtraPadding()
     ref.current.style.position = 'relative'
   }
 
-  const removeExtraPadding = () => document.querySelector('#root').style.paddingTop = 0
+  const removeExtraPadding = () =>
+    (document.querySelector('#root').style.paddingTop = 0)
 
   const pinInTopByRef = ref => {
     addExtraPadding()
     ref.current.style.position = 'fixed'
   }
-  
-  const addExtraPadding = () => document.querySelector('#root').style.paddingTop = '90px'
 
-  const hideByRef = ref => ref.current.style.transform = 'translateY(-100%)'
-  const showByRef = ref => ref.current.style.transform = 'translateY(0%)'
+  const addExtraPadding = () =>
+    (document.querySelector('#root').style.paddingTop = '90px')
+
+  const hideByRef = ref => (ref.current.style.transform = 'translateY(-100%)')
+  const showByRef = ref => (ref.current.style.transform = 'translateY(0%)')
 
   return (
-    <header ref={headerRef} className='header'>
-      <div className='header__container container'>
+    <header ref={headerRef} className="header">
+      <div className="header__container container">
         <Logo />
         <SearchInput
-          placeholder='Введите город'
+          placeholder="Введите город"
           onChange={handleInput}
           onSelect={onSelectCity}
           options={cities}
-          optionsValueKey='name'
+          optionsValueKey="name"
         />
-        <div className='header__info'>
-          <Switch checked={theme.isDarkTheme} onChange={(value) => handleTheme(value)} />
+        <div className="header__info">
+          <Switch
+            checked={theme.isDarkTheme}
+            onChange={value => handleTheme(value)}
+          />
           <LiveTime />
         </div>
       </div>

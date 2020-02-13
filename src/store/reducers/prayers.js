@@ -7,14 +7,17 @@ const initialState = {
 
 export const prayers = (state = initialState, action) => {
   switch (action.type) {
-    case SET_PRAYERS_OF_DAY: return {
-      ...state,
-      prayersOfDay: action.prayersOfDay
-    }
-    case SET_PRAYERS_OF_MONTH: return {
-      ...state,
-      prayersOfMonth: action.prayersOfMonth
-    }
-    default: return state
+    case SET_PRAYERS_OF_DAY:
+      return {
+        ...state,
+        prayersOfDay: action.prayersOfDay
+      }
+    case SET_PRAYERS_OF_MONTH:
+      return {
+        ...state,
+        prayersOfMonth: action.prayersOfMonth
+      }
+    default:
+      return state
   }
 }

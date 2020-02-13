@@ -19,10 +19,14 @@ html,body {
   min-height: 100vh;
   /* overflow: auto; */
   -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
 }
+
+
 * {
   font-family: 'Exo 2', sans-serif;
 }
+
 
 .main{
   min-height: 100vh;
