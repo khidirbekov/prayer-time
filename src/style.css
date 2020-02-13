@@ -5,9 +5,21 @@ body {
   box-sizing: border-box;
   /* background: var(--main-theme-color);
   color: var(--main-text-color); */
-  -webkit-overflow-scrolling: touch;
 }
 
+html,body {
+  margin: 0 0;
+  height: 100%;
+  width: 100%;
+  /* overflow: auto; */
+}
+
+#root {
+  padding-top: 90px;
+  min-height: 100vh;
+  /* overflow: auto; */
+  -webkit-overflow-scrolling: touch;
+}
 * {
   font-family: 'Exo 2', sans-serif;
 }
@@ -78,6 +90,6 @@ body {
 }
 
 .dark, .light {
-  min-height: 100vh;
-  padding-bottom: 20px;
+  /* min-height: 100vh; */
+  padding-bottom: 25px;
 }

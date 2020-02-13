@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import './style.css'
 
 import Switch from '../../components/switch'
@@ -40,6 +40,8 @@ const Header = props => {
     fetchPrayersOfMonth
   } = props
 
+  const headerRef = useRef()
+
   const handleTheme = value => {
     setDarkTheme(value)
   }
@@ -54,8 +56,59 @@ const Header = props => {
     await fetchCities(query)
   }
 
+  useEffect(() => {
+    if (theme.isDark) {
+      headerRef.current.classList.add('dark')
+      headerRef.current.classList.remove('light')
+    } else {
+      headerRef.current.classList.remove('dark')
+      headerRef.current.classList.add('light')
+    }
+  }, [theme.isDark])
+
+  
+
+  useEffect(() => scrollEventListener(), [])
+
+  const scrollEventListener = () => {
+    console.log(1234)
+    window.addEventListener('scroll', function() {
+      const isStartToScroll = window.pageYOffset > 0
+      if (isStartToScroll) {
+        unpinInTopByRef(headerRef)
+      } else {
+        pinInTopByRef(headerRef)
+      }
+
+      const isScrolled = window.pageYOffset > 70
+
+      if (isScrolled) {
+        hideByRef(headerRef)
+      } else {
+        showByRef(headerRef)
+      }
+    })
+  }
+
+  const unpinInTopByRef = ref => {
+    removeExtraPadding()
+    ref.current.style.position = 'relative'
+  }
+
+  const removeExtraPadding = () => document.querySelector('#root').style.paddingTop = 0
+
+  const pinInTopByRef = ref => {
+    addExtraPadding()
+    ref.current.style.position = 'fixed'
+  }
+  
+  const addExtraPadding = () => document.querySelector('#root').style.paddingTop = '90px'
+
+  const hideByRef = ref => ref.current.style.transform = 'translateY(-100%)'
+  const showByRef = ref => ref.current.style.transform = 'translateY(0%)'
+
   return (
-    <header className='header'>
+    <header ref={headerRef} className='header'>
       <div className='header__container container'>
         <Logo />
         <SearchInput
