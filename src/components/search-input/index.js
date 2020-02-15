@@ -16,7 +16,7 @@ const SearchInput = React.memo(
     const [loading, setLoading] = useState(false)
     const textInput = React.createRef()
     const setValue = value => {
-      textInput.current.value = value
+      textInput.current.value = ''
       setIsLoadedOptions(false)
       onSelect(value)
     }

@@ -4,6 +4,8 @@ import { setDarkTheme } from '../../store/actions/theme'
 import Header from '../../modules/header'
 import ScheduleOfDay from '../../modules/schedule-of-day'
 import ScheduleOfMonth from '../../modules/schedule-of-month'
+
+import Footer from '../../modules/footer'
 import '../../style.css'
 
 const mapStateToProps = ({ theme }) => {
@@ -28,6 +30,7 @@ const Main = ({ theme }) => {
       <Header changeColorTheme={changeColorTheme} themeStatus={theme} />
       <ScheduleOfDay />
       <ScheduleOfMonth />
+      <Footer />
     </>
   )
 }

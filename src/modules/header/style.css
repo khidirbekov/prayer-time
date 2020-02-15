@@ -7,7 +7,7 @@
   box-shadow: 0 5px 25px 0 rgba(50, 50, 92, 0.15);
   /* background: #eef2f7; */
   z-index: 99999999999;
-  transition: all .1s ease-in-out;
+  /* transition: all .3s ease-in-out; */
 }
 
 .header__container {
@@ -24,8 +24,12 @@
 
 
 @media screen and (max-width: 575px) {
-  .logo {
+  .header .logo {
     display: none;
+  }
+
+  .header .search__input {
+    height: 25px;
   }
 }
 

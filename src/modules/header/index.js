@@ -65,7 +65,7 @@ const Header = props => {
       pinInTopByRef(headerRef)
     }
 
-    const isScrolled = window.pageYOffset > 70
+    const isScrolled = window.pageYOffset > 100
 
     if (isScrolled) {
       hideByRef(headerRef)
