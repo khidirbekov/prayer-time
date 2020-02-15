@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { setDarkTheme } from '../../store/actions/theme'
 import Header from '../../modules/header'
@@ -7,6 +7,8 @@ import ScheduleOfMonth from '../../modules/schedule-of-month'
 
 import Footer from '../../modules/footer'
 import '../../style.css'
+import { Switch, Route, withRouter } from 'react-router-dom'
+import Settings from '../settings'
 
 const mapStateToProps = ({ theme }) => {
   return {
@@ -25,14 +27,36 @@ const Main = ({ theme }) => {
     setDarkTheme(value)
   }
 
-  return (
-    <>
-      <Header changeColorTheme={changeColorTheme} themeStatus={theme} />
-      <ScheduleOfDay />
-      <ScheduleOfMonth />
-      <Footer />
-    </>
-  )
+  const [isMobile] = useState(document.documentElement.clientWidth <= 768)
+  console.log(isMobile)
+
+  if (isMobile) {
+    return (
+      <>
+        <Header changeColorTheme={changeColorTheme} themeStatus={theme} />
+        <Switch>
+          <Route exact path="/">
+            <ScheduleOfDay />
+          </Route>
+          <Route path="/month">
+            <ScheduleOfMonth />
+          </Route>
+          <Route path="/setting">
+            <Settings />
+          </Route>
+        </Switch>
+        <Footer />
+      </>
+    )
+  } else {
+    return (
+      <>
+        <Header changeColorTheme={changeColorTheme} themeStatus={theme} />
+        <ScheduleOfDay />
+        <ScheduleOfMonth />
+      </>
+    )
+  }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main))

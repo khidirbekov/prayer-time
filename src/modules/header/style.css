@@ -22,6 +22,22 @@
   margin: 0;
 }
 
+.dark .header{
+  background:  #191d28;
+  color: #fff;
+}
+
+.light .header {
+  background: #eef2f7;
+  color: #585a83;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 15px 0;
+  }
+}
+
 
 @media screen and (max-width: 575px) {
   .header .logo {
@@ -30,11 +46,5 @@
 
   .header .search__input {
     height: 25px;
-  }
-}
-
-@media (max-width: 374px) {
-  .header__container {
-    flex-direction: column-reverse;
   }
 }

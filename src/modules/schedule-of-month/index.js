@@ -55,7 +55,13 @@ const PrayerCards = ({
     <Box
       title="Расписание на месяц"
       content={
-        isLoaded ? <Table prayers={showPrayersItems()} /> : <Preloader />
+        isLoaded ? (
+          <div className="schedule-of-month__block">
+            <Table prayers={showPrayersItems()} />{' '}
+          </div>
+        ) : (
+          <Preloader />
+        )
       }
       description={city}
     />

@@ -75,9 +75,8 @@ const Header = props => {
   }
 
   useEffect(() => {
-    window.addEventListener('scroll', scrollEventListener)
-
-    return () => window.removeEventListener('scroll', scrollEventListener)
+    // window.addEventListener('scroll', scrollEventListener)
+    // return () => window.removeEventListener('scroll', scrollEventListener)
   }, [scrollEventListener])
 
   const unpinInTopByRef = ref => {
@@ -94,9 +93,9 @@ const Header = props => {
   }
 
   const addExtraPadding = () =>
-    (document.querySelector('#root').style.paddingTop = '90px')
+    (document.querySelector('#root').style.paddingTop = '62px')
 
-  const hideByRef = ref => (ref.current.style.transform = 'translateY(-100%)')
+  const hideByRef = ref => (ref.current.style.transform = 'translateY(-50%)')
   const showByRef = ref => (ref.current.style.transform = 'translateY(0%)')
 
   return (

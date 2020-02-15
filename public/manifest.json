@@ -1,6 +1,6 @@
 {
-  "short_name": "PrayerTime",
-  "name": "PrayerTime - время молитв",
+  "short_name": "PrayTime",
+  "name": "PrayTime - время молитв",
   "icons": [
     {
      "src": "\/android-icon-36x36.png",
@@ -43,5 +43,5 @@
   "display": "standalone",
   "theme_color": "#eef2f7",
   "background_color": "#eef2f7",
-  "orientation": "portrait-primary"
+  "orientation": "portrait"
 }

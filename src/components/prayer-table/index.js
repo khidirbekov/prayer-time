@@ -4,16 +4,16 @@ import './style.css'
 
 export default ({ prayers }) => {
   return (
-    <table className="prayer-table" cellPadding="10" cellSpacing="0">
+    <table cellspacing="0" className="prayer-table">
       <thead>
         <tr>
           <td>Дата</td>
-          <td>Утр.</td>
-          <td>Восх.</td>
-          <td>Полуд.</td>
-          <td>Посл. полуд.</td>
-          <td>Веч.</td>
-          <td>Ноч.</td>
+          <td>Утренний</td>
+          <td>Восход</td>
+          <td>Полуденный</td>
+          <td>Послeполуденный</td>
+          <td>Вечерний</td>
+          <td>Ночной</td>
         </tr>
       </thead>
       <tbody>{prayers}</tbody>

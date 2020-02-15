@@ -3,7 +3,7 @@
   bottom: 0;
   width: 100%;
   box-sizing: border-box;
-  padding: 15px 0px;
+  padding: 12px 0px;
   z-index: 99999999999;
   display: flex;
   justify-content: center;
@@ -12,8 +12,13 @@
 }
 
 .footer img {
-  height: 25px;
+  height: 22px;
   padding: 0 20px;
+  opacity: .4;
+}
+
+.footer__link__active img {
+  opacity: 1;
 }
 
 .dark .footer {

@@ -15,8 +15,8 @@ html,body {
 }
 
 #root {
-  padding-top: 90px;
-  min-height: 100vh;
+  padding-top: 60px;
+  /* min-height: 100vh; */
   /* overflow: auto; */
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
@@ -25,11 +25,6 @@ html,body {
 
 * {
   font-family: 'Exo 2', sans-serif;
-}
-
-
-.main{
-  min-height: 100vh;
 }
 
 .container {
@@ -49,7 +44,7 @@ html,body {
 
 @media (min-width: 375px) {
   .container {
-    max-width: 345px;
+    max-width: 355px;
   }
 }
 
@@ -96,4 +91,34 @@ html,body {
 .dark, .light {
   /* min-height: 100vh; */
   padding-bottom: 25px;
+}
+
+@media (max-width: 768px) {
+  .dark, .light {
+    /* min-height: 100vh; */
+    padding-bottom: 75px;
+  }
+}
+
+@media (min-width: 769px) {
+  #root {
+    padding-top: 90px;
+  }
+}
+
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 6px;
+  border-radius: 0 7px 7px 0;
+  -webkit-appearance: none;
+  outline: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #8d6ed6;
+  border-radius: 0 7px 7px 0;
+  /* outline: 1px solid rgb(197, 223, 245); */
+  -webkit-appearance: none;
+  outline: none;
 }

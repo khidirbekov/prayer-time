@@ -1,12 +1,5 @@
 import React, { useEffect } from 'react'
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect
-} from 'react-router-dom'
-
 import Main from './pages/main'
 import SelectCity from './pages/select-city'
 
@@ -33,25 +26,20 @@ const App = ({ theme, defaultCity }) => {
 
   return (
     <div className={theme.isDark ? 'dark' : 'light'}>
-      <Router>
-        <Switch>
-          {isExist(defaultCity) ? (
-            <>
-              <Route path="/">
-                <Main />
-              </Route>
-              <Redirect to="/" />
-            </>
-          ) : (
-            <>
-              <Route path="/select-city">
-                <SelectCity />
-              </Route>
-              <Redirect to="/select-city" />
-            </>
-          )}
-        </Switch>
-      </Router>
+      {isExist(defaultCity) ? (
+        <>
+          {/* <Route exact path="/" component={withRouter(Main)} /> */}
+          <Main />
+          {/* <Redirect to="/" /> */}
+        </>
+      ) : (
+        <>
+          {/* <Route path="/select-city"> */}
+          <SelectCity />
+          {/* </Route> */}
+          {/* <Redirect to="/select-city" /> */}
+        </>
+      )}
     </div>
   )
 }

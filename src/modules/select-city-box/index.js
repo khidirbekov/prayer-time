@@ -24,7 +24,7 @@ const SelectCity = ({ cities, fetchCities, setDefaultCity }) => {
 
   const onSelectCity = cityName => {
     setDefaultCity(cityName)
-    history.push('/index')
+    history.push('/')
   }
 
   const handleInput = async query => {

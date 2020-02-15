@@ -3,3 +3,9 @@
   width: 60px;
   color: #8e6ed6;
 }
+
+@media (max-width: 374px) {
+  .header .time {
+    display: none;
+  }
+}

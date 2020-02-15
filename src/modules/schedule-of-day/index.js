@@ -46,7 +46,9 @@ const PrayerCards = ({ loading, prayersOfDay, city, fetchPrayersOfDay }) => {
   return (
     <Box
       title="Расписание на сегодня"
-      content={<>{showPrayersCards()}</>}
+      content={
+        <div className="schedule-of-day__block">{showPrayersCards()}</div>
+      }
       description={city}
     />
   )
