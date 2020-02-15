@@ -22,7 +22,6 @@
 }
 
 .schedule-of-day__block {
-  overflow-y: hidden;
   display: flex;
   justify-content: center;
 }
@@ -96,6 +95,7 @@
 
 @media (max-width: 767px) {
   .schedule-of-day__block {
+    overflow-y: hidden;
     justify-content: flex-start;
   }
 }

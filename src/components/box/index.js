@@ -5,7 +5,7 @@ export default ({ title, content, description }) => {
   return (
     <section className="box container">
       <div className="box__title">{title}</div>
-      <div className="box__content">{content}</div>
+        {content}
       <div className="box__description">{description}</div>
     </section>
   )
