@@ -1,0 +1,126 @@
+.search {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.search__content {
+  display: flex;
+}
+
+.search__input {
+  background: #f3f6f9;
+  border: 1px solid #f3f6f9;
+  border-right: 0;
+  border-radius: 7px 0 0 7px;
+  margin-right: -2px;
+  padding-left: 10px;
+  height: 38px;
+  outline: none;
+  color: #8798aa;
+  -webkit-appearance: none;
+}
+
+.search__input::placeholder {
+  color: #8798aa;
+}
+
+.search__label {
+  color: #8798aa;
+  display: flex;
+  align-items: center;
+  background: #f3f6f9;
+  border: 1px solid #f3f6f9;
+  border-radius: 0 7px 7px 0;
+  border-left: 0;
+  width: 24px;
+  padding-right: 5px;
+}
+
+.search__label img {
+  width: 100%;
+}
+
+.search__input:focus, .search__input:focus + .search__label {
+  background: white;
+  border-color: rgba(190, 176, 244, 0.4);
+}
+
+.search__input:focus + .search__content  {
+  box-shadow: 0px 0px 10px rgba(164, 211, 250, .6);  
+}
+
+.search__loading {
+  position: absolute !important;
+  display: block;
+  right: 50px;
+  top: 15px;
+}
+
+.search__result__wrapper {
+  width: 100%;
+  position: absolute;
+  top: 50px;
+  max-height: 400px;
+  overflow-x: hidden;
+  /* overflow-y: scroll; */
+  background: #fefefe;
+  z-index: 999;
+  border-radius: 7px;
+  box-shadow: 0 1px 50px rgba(0, 0, 0, .2);  
+}
+
+.search__result__wrapper::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #6244a8;
+  border-radius: 0 7px 7px 0;
+  -webkit-appearance: none;
+  outline: none;
+}
+
+.search__result__wrapper::-webkit-scrollbar {
+  width: 7px;
+  border-radius: 0 7px 7px 0;
+  -webkit-appearance: none;
+  outline: none;
+}
+
+.search__result__wrapper::-webkit-scrollbar-thumb {
+  background-color: #8d6ed6;
+  border-radius: 0 7px 7px 0;
+  outline: 1px solid rgb(197, 223, 245);
+  -webkit-appearance: none;
+  outline: none;
+}
+
+.search__result {
+  width: 100%;
+  position: relative;
+  list-style: none;
+  padding: 8px;
+  z-index: 1000;
+}
+
+.search__result:hover {
+  background: #8d6ed6;
+  color: #fefefe;
+  cursor: pointer;
+}
+
+.dark .search__result__wrapper {
+  background: #333a4d;
+}
+
+.dark .search__result:hover {
+  background: #8d6ed6;
+}
+
+.dark .search__input, .dark .search__label {
+  background: #2d3344;
+  border-color: #282e3d;
+}
+
+.dark .search__input:focus, .dark .search__input:focus + .search__label {
+  background: #333a4d;
+  border-color: #282e3d;
+}

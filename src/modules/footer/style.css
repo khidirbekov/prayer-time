@@ -1,0 +1,33 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 0px;
+  z-index: 99999999999;
+  display: flex;
+  justify-content: center;
+  border-top: .5px solid #d2d4d8;
+  /* transition: all .3s ease-in-out; */
+}
+
+.footer img {
+  height: 22px;
+  padding: 0 20px;
+  opacity: .4;
+}
+
+.footer__link__active img {
+  opacity: 1;
+}
+
+.dark .footer {
+  background:  #191d28;
+  color: #fff;
+  border-top: .5px solid #1c2029;
+}
+
+.light .footer {
+  background: #eef2f7;
+  color: #585a83;
+}

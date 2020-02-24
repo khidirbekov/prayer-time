@@ -1,0 +1,57 @@
+.prayer-table {
+  border-color: #8e6ed6;
+  width: 100%;
+  padding-bottom: 10px;
+  overflow: scroll;
+  text-align: center;
+}
+
+.schedule-of-month__block {
+  overflow-y: hidden;
+  width: 100%;
+}
+
+.prayer-table td {
+  padding: 9px 8px;
+  border: none;
+  min-width: 100px;
+}
+
+.prayer-table thead td {
+  font-weight: 900;
+  word-break: keep-all;
+}
+
+.light .prayer-table tbody tr:nth-child(2n){
+  background-color: #ece3ff;
+}
+
+.dark .prayer-table tbody tr:nth-child(2n-1){
+  background-color: #2d3344;
+}
+
+
+
+.dark .prayer-table thead {
+  color: #8d6ed6;
+}
+@media (max-width: 575px) {
+  .prayer-table, .schedule-of-month__block {
+    padding: 0;
+  }
+  .prayer-table td {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 425px) {
+  .prayer-table td {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 375px) {
+  .prayer-table td {
+    font-size: 15px;
+  }
+}

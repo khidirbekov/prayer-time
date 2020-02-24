@@ -1,0 +1,1 @@
+export const FIXED_ISHA_ANGLE_INTERVAL = 8

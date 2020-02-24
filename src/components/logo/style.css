@@ -1,0 +1,10 @@
+.logo {
+  color: #32325c;
+  font-weight: 900;
+  font-size: 30px;
+  margin: 0;
+}
+
+.dark .logo {
+  color: #8056dd;
+}
